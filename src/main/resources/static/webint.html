@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webIntSb</title>
+    <link href="style.css" rel="stylesheet">
+    <script language="JavaScript" src="script.js" async defer></script>
+</head>
+<body>
+
+<div class="shownBorder">
+    <h2>Add account</h2>
+    <button onclick="addAccount()" id="newAccountBtn">Add account</button>
+    <br/>
+    <label>Result: </label>
+    <label id="newAccountResult">undef</label>
+</div>
+
+<div class="shownBorder">
+    <h2>Delete account</h2>
+    <label>UUID</label>
+    <input id="deleteAccUuid" name="deleteAccUuid" type="text" size="40">
+    <button onclick="deleteAccount()" id="deleteAccBtn">Delete account</button>
+    <br/>
+    <label>Result: </label>
+    <label id="deleteResult">undef</label>
+</div>
+
+<div class="shownBorder">
+    <h2>Get accounts list</h2>
+    <button onclick="getAllAccount()" id="getAllAccBtn">Get accounts</button>
+    <br/>
+    <label>Result: </label>
+    <table id="allAccounts" style="border: 1px solid black">
+        <tbody>
+        <tr>
+            <td>undef</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="shownBorder">
+    <h2>Get balance</h2>
+    <label>UUID</label>
+    <input id="getBalanceUuid" type="text" size="40">
+    <button onclick="getBalance()" id="getBalanceBtn">Get balance</button>
+    <br/>
+    <label>Result: </label>
+    <label id="getBalanceResult">undef</label>
+</div>
+
+<div class="shownBorder">
+    <h2>Decrease balance</h2>
+    <label>UUID</label>
+    <input id="decreaseBalanceUuid" type="text" size="40"><br/>
+    <label>Sum: </label>
+    <input id="decreaseBalanceSum" type="text" size="10">
+    <button onclick="decreaseBalance()" id="decreaseBalanceBtn">Decrease balance</button>
+    <br/>
+    <label>Result: </label>
+    <label id="decreaseBalanceResult">undef</label>
+</div>
+
+<div class="shownBorder">
+    <h2>Increase balance</h2>
+    <label>UUID</label>
+    <input id="increaseBalanceUuid" type="text" size="40"><br/>
+    <label>Sum: </label>
+    <input id="increaseBalanceSum" type="text" size="10">
+    <button onclick="increaseBalance()" id="increaseBalanceBtn">Increase balance</button>
+    <br/>
+    <label>Result: </label>
+    <label id="increaseBalanceResult">undef</label>
+</div>
+
+<div class="shownBorder">
+    <h2>Transfer</h2>
+    <label>From UUID</label>
+    <input id="transferFrom" type="text" size="40"><br/>
+    <label>To UUID</label>
+    <input id="transferTo" type="text" size="40"><br/>
+    <label>Sum: </label>
+    <input id="transferSum" type="text" size="10">
+    <button onclick="transferBalance()" id="transferBtn">Transfer</button>
+    <br/>
+    <label>Result: </label>
+    <label id="transferResult">undef</label>
+</div>
+
+</body>
+</html>
