@@ -1,6 +1,6 @@
 function addAccount() {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/api/account', false);
+    xhr.open('POST', './api/account', false);
     xhr.send();
     if (xhr.status != 200) {
         alert(xhr.status + ': ' + xhr.statusText);
@@ -12,7 +12,7 @@ function addAccount() {
 function deleteAccount() {
     var xhr = new XMLHttpRequest();
     var params = 'id=' + encodeURI(document.getElementById('deleteAccUuid').value);
-    xhr.open('DELETE', '/api/account' + '?' + params, false);
+    xhr.open('DELETE', './api/account' + '?' + params, false);
     xhr.send();
     if (xhr.status != 200) {
         alert(xhr.status + ': ' + xhr.statusText);
@@ -23,7 +23,7 @@ function deleteAccount() {
 
 function getAllAccount() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/api/account/all', false);
+    xhr.open('GET', './api/account/all', false);
     xhr.send();
     if (xhr.status != 200) {
         alert(xhr.status + ': ' + xhr.statusText);
@@ -47,7 +47,7 @@ function getAllAccount() {
 function getBalance() {
     var xhr = new XMLHttpRequest();
     var params = 'id=' + encodeURI(document.getElementById('getBalanceUuid').value);
-    xhr.open('GET', '/api/account' + '?' + params, false);
+    xhr.open('GET', './api/account' + '?' + params, false);
     xhr.send();
     if (xhr.status != 200) {
         alert(xhr.status + ': ' + xhr.statusText);
@@ -60,7 +60,7 @@ function decreaseBalance() {
     var xhr = new XMLHttpRequest();
     var params = 'id=' + encodeURI(document.getElementById('decreaseBalanceUuid').value)
         + '&' + 'sum=' + encodeURI(document.getElementById('decreaseBalanceSum').value);
-    xhr.open('PUT', '/api/transfers/decrease' + '?' + params, false);
+    xhr.open('PUT', './api/transfers/decrease' + '?' + params, false);
     xhr.send();
     if (xhr.status != 200) {
         alert(xhr.status + ': ' + xhr.statusText);
@@ -73,7 +73,7 @@ function increaseBalance() {
     var xhr = new XMLHttpRequest();
     var params = 'id=' + encodeURI(document.getElementById('increaseBalanceUuid').value)
         + '&' + 'sum=' + encodeURI(document.getElementById('increaseBalanceSum').value);
-    xhr.open('PUT', '/api/transfers/increase' + '?' + params, false);
+    xhr.open('PUT', './api/transfers/increase' + '?' + params, false);
     xhr.send();
     if (xhr.status != 200) {
         alert(xhr.status + ': ' + xhr.statusText);
@@ -87,7 +87,7 @@ function transferBalance() {
     var params = 'source=' + encodeURI(document.getElementById('transferFrom').value)
         + '&' + 'dest=' + encodeURI(document.getElementById('transferTo').value)
         + '&' + 'sum=' + encodeURI(document.getElementById('transferSum').value);
-    xhr.open('PUT', '/api/transfers/transfer' + '?' + params, false);
+    xhr.open('PUT', './api/transfers/transfer' + '?' + params, false);
     xhr.send();
     if (xhr.status != 200) {
         alert(xhr.status + ': ' + xhr.statusText);
