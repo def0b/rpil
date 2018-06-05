@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import javax.persistence.EntityNotFoundException;
 
-
-
+/**
+ * Created by defabey on 24-Mar-18.
+ */
 @RestController
 @RequestMapping("/api/account")
 public class ApiAccountController {
@@ -23,8 +23,12 @@ public class ApiAccountController {
     private AccountRepository accountRepository;
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(@RequestParam UUID id) {
-        accountRepository.deleteById(id);
+    public boolean delete(@RequestParam UUID id) {
+        if (accountRepository.existsById(id)) {
+            accountRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -36,11 +40,14 @@ public class ApiAccountController {
 
     @RequestMapping(method = RequestMethod.GET)
     public Integer getBalance(@RequestParam UUID id) {
-        return accountRepository.findById(id).orElseThrow(EntityNotFoundException::new).getBalance();
+        return accountRepository.findById(id)
+            .map(AccountEntity::getBalance).orElse(null);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/all")
     public List<UUID> getAll() {
-        return accountRepository.findAll().stream().map(AccountEntity::getId).collect(Collectors.toList());
+        return accountRepository.findAll().stream()
+            .map(AccountEntity::getId)
+            .collect(Collectors.toList());
     }
 }
